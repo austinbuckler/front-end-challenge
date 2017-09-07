@@ -1,8 +1,13 @@
 import React, { Component } from 'react';
-import './style.css';
 
-import Navigation from './components/navigation'
-import UserAvatar from './components/user-avatar'
+import './style.css'
+
+import { connect } from 'react-redux'
+
+import Navigation from 'components/navigation'
+import UserAvatar from 'components/user/avatar'
+
+import BankCard from 'components/bank-card'
 
 class App extends Component {
   render() {
@@ -11,6 +16,7 @@ class App extends Component {
         <Navigation>
           <UserAvatar imageURL="https://unsplash.it/32/32/?random" />
         </Navigation>
+        <BankCard balance={1230.89} />
       </div>
     );
   }
