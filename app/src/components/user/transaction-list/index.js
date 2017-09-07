@@ -1,13 +1,13 @@
 import React, { Component } from 'react'
-import Transaction from './transaction'
-import Filter from './filter'
+import Transaction from './Transaction'
+import Filter from './Filter'
 
 import './style.css'
 
-export default ({ transactions }) => (
+export default ({ transactions=[] }) => (
 	<div>
-		<h2 className="count">34 Transactions</h2>
-		<Filter />
+		<h2 className="count">{transactions.length} Transactions</h2>
+		
 		<ul>
 			{
 				transactions.map(transaction => (
