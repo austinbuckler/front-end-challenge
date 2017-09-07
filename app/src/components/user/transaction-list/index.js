@@ -4,16 +4,20 @@ import Filter from './Filter'
 
 import './style.css'
 
-export default ({ transactions=[] }) => (
+export default ({
+	earliestTransactionDate=null,
+	latestTransactionDate=null,
+	daysSpanByTransaction=-1,
+	transactionCount=-1,
+	transactions=[]
+}) => (
 	<div>
-		<h2 className="count">{transactions.length} Transactions</h2>
+		<h2 className="count">{transactionCount} Transactions</h2>
 		
 		<ul>
-			{
-				transactions.map(transaction => (
+			{transactions.map(transaction => (
 					<Transaction key={transaction.transactionId} {...transaction} />
-					))
-			}
+					))}
 		</ul>
 	</div>
 	)

@@ -1,10 +1,16 @@
 import { connect } from 'react-redux'
+import { fetchData } from 'actions'
 import App from 'components/app'
 
 const mapStateToProps = (state, ownProps) => ({
-	accounts: state.accounts,
-	transactionData: state.transactionData,
-	categories: state.categories
+	...state
 })
 
-export default connect(mapStateToProps)(App)
+const mapDispatchToProps = dispatch => {
+	dispatch(fetchData())
+	return {
+		dispatch
+	}
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App)

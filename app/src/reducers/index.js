@@ -5,7 +5,7 @@ import {
 	RECEIVE_DATA,
 	FAILURE_DATA,
 	UPDATE_ACCOUNTS,
-	UPDATE_TRANSACTIONS,
+	UPDATE_TRANSACTION_DATA,
 	UPDATE_CATEGORIES
 } from 'actions'
 
@@ -16,9 +16,9 @@ const accounts = (state = [], action) => {
 	}
 }
 
-const transactions = (state = [], action) => {
+const transactionData = (state = [], action) => {
 	switch (action.type) {
-		case UPDATE_TRANSACTIONS: return Object.assign({}, state, { ...action.payload })
+		case UPDATE_TRANSACTION_DATA: return Object.assign({}, state, { ...action.payload })
 		default: return state
 	}
 }
@@ -54,7 +54,7 @@ const bankApp = combineReducers({
 	filtered,
 	fetching,
 	accounts,
-	transactions,
+	transactionData,
 	categories,
 })
 
