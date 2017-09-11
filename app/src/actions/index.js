@@ -1,15 +1,21 @@
 export const REQUEST_DATA = 'REQUEST_DATA'
 export const RECEIVE_DATA = 'RECEIVE_DATA'
 export const FAILURE_DATA = 'FAILURE_DATA'
+
 export const TOGGLE_FILTER = 'TOGGLE_FILTER'
+export const CLEAR_FILTERS = 'CLEAR_FILTERS'
+
 export const UPDATE_ACCOUNTS = 'UPDATE_ACCOUNTS'
 export const UPDATE_TRANSACTION_DATA = 'UPDATE_TRANSACTIONS'
 export const UPDATE_CATEGORIES = 'UPDATE_CATEGORIES'
 
 export const toggleFilter = (id, status) => ({
     type: TOGGLE_FILTER,
-    id,
-    status
+    id
+})
+
+export const clearFilters = () => ({
+	type: CLEAR_FILTERS
 })
 
 const requestData = () => ({

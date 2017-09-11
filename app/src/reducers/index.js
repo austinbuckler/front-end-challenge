@@ -1,6 +1,7 @@
 import { combineReducers } from 'redux'
 import {
 	TOGGLE_FILTER,
+	CLEAR_FILTERS,
 	REQUEST_DATA,
 	RECEIVE_DATA,
 	FAILURE_DATA,
@@ -11,7 +12,7 @@ import {
 
 const accounts = (state = [], action) => {
 	switch (action.type) {
-		case UPDATE_ACCOUNTS: return Object.assign({}, state, { ...action.payload })
+		case UPDATE_ACCOUNTS: return [ ...state, ...action.payload ]
 		default: return state
 	}
 }
@@ -25,17 +26,17 @@ const transactionData = (state = [], action) => {
 
 const categories = (state = [], action) => {
 	switch (action.type) {
-		case UPDATE_CATEGORIES: return Object.assign({}, state, { ...action.payload })
+		case UPDATE_CATEGORIES: return [ ...state, ...action.payload ]
 		default: return state
 	}
 }
 
 const filtered = (state = [], action) => {
 	switch (action.type) {
+		case CLEAR_FILTERS:
+			return []
 		case TOGGLE_FILTER:
-			return state.map(filter => (filter.id === action.id)
-				? { ...filter, status: !filter.status } : filter
-			)
+			return state.includes(action.id) ? state.filter(item => item !== action.id) : [ ...state, action.id ]
 		default:
 			return state
 	}

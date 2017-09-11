@@ -2,5 +2,37 @@
 	border-radius: 8px;
 	background-color: #fff;
 	/* box-shadow:  */
-	
+	margin: 0 12px;
+	padding: 0;
+}
+
+.count {
+	font-weight: 500;
+	margin: 0 12px 12px;
+}
+
+.transaction {
+	height: 67px;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	padding: 12px;
+	box-sizing: border-box;
+}
+
+.transaction:not(:last-of-type) {
+	border-bottom: 1px solid rgba(0,0,0,0.12);
+}
+
+.transaction__description {
+	font-size: 14px;
+	font-weight: 500;
+	text-transform: uppercase;
+}
+
+.transaction__amount {
+	font-size: 18px;
+	font-weight: 100;
+	text-align: right;
+	margin-left: auto;
 }

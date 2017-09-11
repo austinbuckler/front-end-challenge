@@ -5,7 +5,7 @@ const style = {
 		display: 'flex',
 		flexDirection: 'column',
 		justifyContent: 'center',
-		height: 256
+		height: 192
 	},
 	balance: {
 		fontSize: 44,
@@ -24,7 +24,7 @@ const style = {
 
 export default ({ balance }) => (
 	<div style={style.container}>
-		<h1 style={style.balance}>{ balance }</h1>
+		<h1 style={style.balance}>${ balance }</h1>
 		<span style={style.total}>Total Balance</span>
 	</div>
 	)
