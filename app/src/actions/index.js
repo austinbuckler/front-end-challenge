@@ -9,13 +9,24 @@ export const UPDATE_ACCOUNTS = 'UPDATE_ACCOUNTS'
 export const UPDATE_TRANSACTION_DATA = 'UPDATE_TRANSACTIONS'
 export const UPDATE_CATEGORIES = 'UPDATE_CATEGORIES'
 
-export const toggleFilter = (id, filterType) => ({
+export const SORT_TRANSACTION_ASC = 'SORT_TRANSACTION_ASC'
+export const SORT_TRANSACTION_DESC = 'SORT_TRANSACTION_DESC'
+
+export const toggleFilter = (id) => ({
     type: TOGGLE_FILTER,
-    id: `${id}::${filterType}`,
+    id
 })
 
 export const clearFilters = () => ({
 	type: CLEAR_FILTERS
+})
+
+export const sortTransactionsAsc = () => ({
+	type: SORT_TRANSACTION_ASC
+})
+
+export const sortTransactionsDesc = () => ({
+	type: SORT_TRANSACTION_DESC
 })
 
 const requestData = () => ({

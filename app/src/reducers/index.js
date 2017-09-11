@@ -1,10 +1,15 @@
 import { combineReducers } from 'redux'
 import {
+	SORT_TRANSACTION_ASC,
+	SORT_TRANSACTION_DESC,
+	
 	TOGGLE_FILTER,
 	CLEAR_FILTERS,
+	
 	REQUEST_DATA,
 	RECEIVE_DATA,
 	FAILURE_DATA,
+	
 	UPDATE_ACCOUNTS,
 	UPDATE_TRANSACTION_DATA,
 	UPDATE_CATEGORIES
@@ -26,6 +31,12 @@ const transactionData = (state = {
 }, action) => {
 	switch (action.type) {
 		case UPDATE_TRANSACTION_DATA: return Object.assign({}, state, { ...action.payload })
+		case SORT_TRANSACTION_ASC:
+			const sortedAsc = state.transactions.sort((a, b) => new Date(b.transactionDate) - new Date(a.transactionDate))
+			return Object.assign({}, state, { transactions: sortedAsc })
+		case SORT_TRANSACTION_DESC:
+			const sortedDesc = state.transactions.sort((a, b) => new Date(a.transactionDate) - new Date(b.transactionDate))
+			return Object.assign({}, state, { transactions: sortedDesc })
 		default: return state
 	}
 }
