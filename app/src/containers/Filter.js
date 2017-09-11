@@ -9,14 +9,14 @@ let Filter = ({ dispatch, accounts, categories, filtered }) => {
 	let mapAccounts = accounts.map(account => {
 		const key = account.accountId
 		const display = account.accountName
-		const disabled = filtered.includes(account.accountName)
-		return <StatefulButton key={ key } text={ display } onClick={ () => dispatch(toggleFilter(display)) } disabled={ disabled } />
+		const disabled = filtered.includes(`${key}::ACCOUNT`)
+		return <StatefulButton key={ key } text={ display } onClick={ () => dispatch(toggleFilter(key, 'ACCOUNT')) } disabled={ disabled } />
 	})
 	
 	let mapCategories = categories.map(category => {
 		const display = category.replace(/_/g, ' ')
-		const disabled = filtered.includes(display)
-		return <StatefulButton key={ category } text={ display } onClick={ () => dispatch(toggleFilter(display)) } disabled={ disabled } />
+		const disabled = filtered.includes(`${category}::CATEGORY`)
+		return <StatefulButton key={ category } text={ display } onClick={ () => dispatch(toggleFilter(category, 'CATEGORY')) } disabled={ disabled } />
 	})
 	
 	let clearFiltersButton = () => {
@@ -37,6 +37,8 @@ let Filter = ({ dispatch, accounts, categories, filtered }) => {
 	)
 }
 
-Filter = connect()(Filter)
+const mapStateToProps = state => ({ ...state })
+
+Filter = connect(mapStateToProps)(Filter)
 
 export default Filter

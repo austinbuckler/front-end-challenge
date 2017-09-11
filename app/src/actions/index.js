@@ -9,9 +9,9 @@ export const UPDATE_ACCOUNTS = 'UPDATE_ACCOUNTS'
 export const UPDATE_TRANSACTION_DATA = 'UPDATE_TRANSACTIONS'
 export const UPDATE_CATEGORIES = 'UPDATE_CATEGORIES'
 
-export const toggleFilter = (id, status) => ({
+export const toggleFilter = (id, filterType) => ({
     type: TOGGLE_FILTER,
-    id
+    id: `${id}::${filterType}`,
 })
 
 export const clearFilters = () => ({

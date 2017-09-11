@@ -5,33 +5,24 @@ import Navigation from 'components/navigation'
 
 import UserAvatar from 'components/user/avatar'
 import TotalBalance from 'components/user/TotalBalance'
-import TransactionList from 'components/user/transaction-list'
+import FilteredTransactionList from 'containers/FilteredTransactionList'
 import Filter from 'containers/Filter'
 import FilterButton from 'components/FilterButton'
 
-class App extends Component {
+export default ({ accounts, transactionData, categories, filtered, fetching }) => {
+ 
+ const totalAccountBalance = accounts.reduce((sum, value) => (value.balance + sum), 0)
+ 
+ return fetching ? (<div className="App">Fetching...</div>) : (
+    <div className="App">
+      <Navigation>
+        <UserAvatar imageURL="https://unsplash.it/32/32/?random" />
+      </Navigation>
+      <TotalBalance balance={ totalAccountBalance } />
+      <FilterButton activeFilters={ filtered } />
+      <Filter />
+      <FilteredTransactionList />
+    </div>
+ )
   
-  totalAccountBalance() {
-    const { accounts } = this.props
-    return accounts.reduce((sum, value) => (value.balance + sum), 0)
-  }
-  
-  render() {
-    const { accounts, transactionData, categories, filtered } = this.props
-    const filteredCount = filtered.length;
-    return (
-      <div className="App">
-        <Navigation>
-          <UserAvatar imageURL="https://unsplash.it/32/32/?random" />
-        </Navigation>
-        <TotalBalance balance={this.totalAccountBalance()} />
-        <h2 className="count">{transactionData.transactionCount} Transactions</h2>
-        <FilterButton activeFilters={filtered} />
-        <Filter accounts={accounts} categories={categories} filtered={filtered} />
-        <TransactionList {...transactionData} />
-      </div>
-    );
-  }
 }
-
-export default App;

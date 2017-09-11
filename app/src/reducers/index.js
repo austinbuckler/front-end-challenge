@@ -17,7 +17,13 @@ const accounts = (state = [], action) => {
 	}
 }
 
-const transactionData = (state = [], action) => {
+const transactionData = (state = {
+	earliestTransactionDate: null,
+	latestTransactionDate: null,
+	daysSpanByTransaction: -1,
+	transactionCount: 0,
+	transactions: []
+}, action) => {
 	switch (action.type) {
 		case UPDATE_TRANSACTION_DATA: return Object.assign({}, state, { ...action.payload })
 		default: return state
