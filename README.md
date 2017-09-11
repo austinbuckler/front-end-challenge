@@ -17,8 +17,8 @@ The user should be able to do the following:
 
 ## Non-functional requirements
 
-- Your code should be a hosted on Github with periodic commits instead of one large commit. Make sure your commit messages are clear and understandable.
-- The UI should be nicely designed and easy to use
+- ✔️ Your code should be a hosted on Github with periodic commits instead of one large commit. Make sure your commit messages are clear and understandable.
+- ✔️ The UI should be nicely designed and easy to use
 
 ## API
 `GET http://demo7235469.mockable.io/transactions`
@@ -34,7 +34,7 @@ Returns a list of accounts, categories, and transactions. Use this data to const
 - Filter transactions by a "from" and "to" date (ex. January 1st 2017 to January 18th 2017)
 - Animations, transitions, other interactivity
 - Unit tests applied to your code
-- Responsive design
+- ✔️ Responsive design
 
 ## Useful Links
 - [Create React App](https://github.com/facebookincubator/create-react-app]) starter kit
