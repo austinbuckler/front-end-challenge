@@ -1,19 +1,13 @@
 import { connect } from 'react-redux'
-import { fetchData, sortTransactionsAsc, sortTransactionsDesc } from 'actions'
+import { fetchData } from 'actions'
 import App from 'components/app'
 
 const mapStateToProps = state => ({ ...state })
 
-const mapDispatchToProps = (dispatch, ownProps) => {
+const mapDispatchToProps = dispatch => {
 	dispatch(fetchData())
 	return {
-		toggleSort: (state) => {
-			if (state) {
-				dispatch(sortTransactionsAsc())
-			} else {
-				dispatch(sortTransactionsDesc())
-			}
-		}
+		dispatch
 	}
 }
 

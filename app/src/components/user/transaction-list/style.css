@@ -1,20 +1,16 @@
 .list {
 	border-radius: 8px;
 	background-color: #fff;
-	/* box-shadow:  */
-	margin: 0 12px;
+	box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+	margin: 0 12px 21px;
 	padding: 0;
 }
 
-.count {
-	font-weight: 500;
-	margin: 0 12px 12px;
-}
-
 .transaction {
-	height: 67px;
+	min-height: 67px;
 	width: 100%;
 	display: flex;
+	flex-direction: column;
 	align-items: center;
 	padding: 12px;
 	box-sizing: border-box;
@@ -25,14 +21,51 @@
 }
 
 .transaction__description {
-	font-size: 14px;
+	font-size: 13px;
 	font-weight: 500;
 	text-transform: uppercase;
+	margin: 0;
 }
 
 .transaction__amount {
 	font-size: 18px;
 	font-weight: 100;
 	text-align: right;
+	margin: 0 0 0 auto;
+	flex: auto;
+	width: 50%;
+}
+
+.transaction__primary {
+	display: flex;
+	align-items: center;
+	width: 100%;
+}
+
+.transaction__secondary {
+	color: #939893;
+	font-size: 11px;
+	width: 100%;
+	display: flex;
+}
+
+.transaction__date {
 	margin-left: auto;
+}
+
+.count {
+	font-weight: 500;
+	margin: 0;
+}
+
+.toolbar {
+	margin-bottom: 12px;
+	padding: 0 12px;
+	display: flex;
+}
+
+.toolbar__right {
+	margin-left: auto;
+	display: flex;
+	align-items: center;
 }

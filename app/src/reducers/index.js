@@ -30,13 +30,21 @@ const transactionData = (state = {
 	transactions: []
 }, action) => {
 	switch (action.type) {
-		case UPDATE_TRANSACTION_DATA: return Object.assign({}, state, { ...action.payload })
+		case UPDATE_TRANSACTION_DATA: return { ...state, ...action.payload }
 		case SORT_TRANSACTION_ASC:
-			const sortedAsc = state.transactions.sort((a, b) => new Date(b.transactionDate) - new Date(a.transactionDate))
-			return Object.assign({}, state, { transactions: sortedAsc })
+			let sortedAsc = state.transactions
+			sortedAsc.sort((a, b) => new Date(b.transactionDate) - new Date(a.transactionDate))
+			return {
+				...state,
+				transactions: sortedAsc
+			}
 		case SORT_TRANSACTION_DESC:
-			const sortedDesc = state.transactions.sort((a, b) => new Date(a.transactionDate) - new Date(b.transactionDate))
-			return Object.assign({}, state, { transactions: sortedDesc })
+			let sortedDesc = state.transactions
+			sortedDesc.sort((a, b) => new Date(a.transactionDate) - new Date(b.transactionDate))
+			return {
+				...state,
+				transactions: sortedDesc
+			}
 		default: return state
 	}
 }
